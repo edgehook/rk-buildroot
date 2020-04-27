@@ -70,6 +70,13 @@ function main()
 	source ${TOP_DIR}/device/rockchip/.BoardConfig.mk
 	echo Top of tree: ${TOP_DIR}
 
+	# aka.jiang add : for files more than 100M
+	if [ ! -f ${TOP_DIR}/external/rockx/python/RockX-1.1.0-py3-none-any.whl ]; then
+		cat ${TOP_DIR}/external/rockx/python/RockX-1.1.0-py3-none-any.whl0* > ${TOP_DIR}/external/rockx/python/RockX-1.1.0-py3-none-any.whl
+	else
+		echo "Alread exist RockX-1.1.0-py3-none-any.whl"
+	fi
+
 	# Set croot alias
 	alias croot="cd ${TOP_DIR}"
 
